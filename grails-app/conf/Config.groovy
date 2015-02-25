@@ -152,9 +152,10 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.asd.seven.adventticket.security.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.asd.seven.adventticket.security.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.asd.seven.adventticket.security.Role'
-grails.plugin.springsecurity.requestMap.className = 'com.asd.seven.adventticket.security.Requestmap'
-grails.plugin.springsecurity.securityConfigType = 'Requestmap'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.auth.forceHttps = false
+grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+grails.plugin.springsecurity.interceptUrlMap = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
 	'/index.gsp':                     ['permitAll'],
@@ -162,5 +163,12 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+    '/login/**':                      ['permitAll'],
+    '/logout/**':                     ['permitAll']
 ]
+
+grails.plugins.springsecurity.roleHierarchy = '''
+   ROLE_SUPERADMIN > ROLE_ORGANIZATION
+   ROLE_ORGANIZATION > ROLE_ASSISTANT
+'''
