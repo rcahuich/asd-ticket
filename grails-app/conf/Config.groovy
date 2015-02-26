@@ -165,10 +165,12 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
     '/login/**':                      ['permitAll'],
-    '/logout/**':                     ['permitAll']
+    '/logout/**':                     ['permitAll'],
+    '/registro/**':                   ['permitAll'],
+    '/enrollment/**':                 ['permitAll']
 ]
 
-grails.plugins.springsecurity.roleHierarchy = '''
+grails.plugin.springsecurity.roleHierarchy = '''
    ROLE_SUPERADMIN > ROLE_ORGANIZATION
    ROLE_ORGANIZATION > ROLE_ASSISTANT
 '''

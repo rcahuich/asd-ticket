@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title><g:message code="menu.bienvenido"/> </title>
+		<title><g:message code="menu.welcome.label"/> </title>
 
 	</head>
 	<body>
     <!-- Header -->
     <a name="about"></a>
-    <div class="intro-header">
+    <div class="intro-header animated fadeInDown">
         <div class="container">
 
             <div class="row">
@@ -22,7 +22,7 @@
                                 <a href="https://twitter.com/adventicket" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebok</span></a>
                             </li>
                         </ul>
                     </div>
@@ -38,7 +38,7 @@
     <!-- Page Content -->
 
     <a  name="services"></a>
-    <div class="content-section-a">
+    <div class="content-section-a animated fadeInDown">
 
         <div class="container">
             <div class="row">
@@ -59,7 +59,7 @@
     </div>
     <!-- /.content-section-a -->
 
-    <div class="content-section-b">
+    <div class="content-section-b animated fadeInDown">
 
         <div class="container">
 
@@ -81,7 +81,7 @@
     </div>
     <!-- /.content-section-b -->
 
-    <div class="content-section-a">
+    <div class="content-section-a animated fadeInDown">
 
         <div class="container">
 
@@ -104,7 +104,7 @@
     <!-- /.content-section-a -->
 
     <a  name="contact"></a>
-    <div class="banner">
+    <div class="banner animated fadeInDown">
 
         <div class="container">
 

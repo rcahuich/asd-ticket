@@ -9,6 +9,10 @@
 //= require bootstrap.min
 //= require_self
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
 if (typeof jQuery !== 'undefined') {
 	(function($) {
 		$('#spinner').ajaxStart(function() {

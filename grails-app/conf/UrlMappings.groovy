@@ -8,6 +8,7 @@ class UrlMappings {
         }
 
         "/"(controller: "home", action: "index")
+        "/registro"(controller: "enrollment", action: "index")
         "500"(view:'/error')
 	}
 }
