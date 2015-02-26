@@ -36,6 +36,7 @@
                     error: function (data) {
                         console.log(data);
                         $('#msg-error').show();
+                        $('#error').html(data.responseText);
                         $('#outline-register').hide();
                         $('#form-register').addClass('animated fadeIn').show();
                     }
@@ -46,7 +47,8 @@
     });
     </script>
     <style type="text/css">
-        #msg-success {display: none;width:100%;margin:22% auto;}
+        body {margin-top: 30px;}
+        #msg-success {display: none;width:100%;margin: 5% 0 60% 0;}
         .msg {height:70px;}
     </style>
 </head>
@@ -75,10 +77,10 @@
 
                 <div id="msg-success">
                     <div class="msg text-center">
-                        <i class="fa fa-check-circle fa-4x animated rotateIn" style="color: #000080"></i>
+                        <i class="fa fa-check-circle fa-4x animated rotateIn" style="color: #00B300"></i>
                         <div class="animated fadeInUp">
-                            <h2>¡Felicidades <span id="name"></span>!</h2>
-                            <h4>Para terminar el proceso de tu nueva cuenta, te pedimos por favor valides el correo electrónico que te enviamos.</h4>
+                            <h2><g:message code="enrollment.form.msg.success1.label" /> <span id="name"></span>!</h2>
+                            <p><h5><g:message code="enrollment.form.msg.success2.label" /></h5></p>
                             <a class="btn btn-default" href="${createLink(uri: "/")}"> Ir a Inicio</a>
                         </div>
                     </div>
@@ -86,7 +88,7 @@
 
                 <form id="form-register" role="form">
                     <div id="msg-error" style="display: none;">
-                        <div class="alert alert-danger" role="alert">Ocurrio un error al guardar, verifica que los datos sean correctos e intentalo de nuevo.</div>
+                        <div class="alert alert-danger" role="alert"><span id="error"></span></div>
                     </div>
                     <div class="form-group">
                         <input type="text" name="username" id="username" class="validate[required] form-control" autofocus

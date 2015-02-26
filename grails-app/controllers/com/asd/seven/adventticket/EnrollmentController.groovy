@@ -9,7 +9,7 @@ class EnrollmentController {
     def index() {}
 
     def saveEnroll() {
-        println params
+
         try {
             enrollmentService.createUser(params)
             render ([username:params.username] as JSON)

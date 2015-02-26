@@ -17,7 +17,6 @@ class EnrollmentService {
             throw new AuthenticationServiceException("Usuario existente, introduzca otro por favor.");
         }
 
-
         User user = new User()
         user.username = params?.username
         user.nameFull = params?.nameFull
