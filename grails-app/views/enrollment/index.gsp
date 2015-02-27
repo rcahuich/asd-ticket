@@ -134,8 +134,15 @@
                         </div>
                     </div>
 
-                    <button id="save-register" type="submit" class="btn btn-info btn-block"> <g:message code="enrollment.form.btn.add.label" /> </button>
+                    <button id="save-register" type="submit" class="btn btn-success btn-block"> <g:message code="enrollment.form.btn.add.label" /> </button>
                 </form>
+
+                <div class="login-or">
+                    <hr class="hr-or">
+                    <span class="span-or">or</span>
+                </div>
+
+
 
             </div>
         </div>

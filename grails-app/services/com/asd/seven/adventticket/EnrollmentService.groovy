@@ -28,6 +28,7 @@ class EnrollmentService {
         user.validate()
         if(user.hasErrors()) {
             log.error(user.errors)
+            user.discard()
             throw new AuthenticationServiceException("Ocurrio un error al momento de guardar los datos. Intentelo mas tarde.");
         }
 
