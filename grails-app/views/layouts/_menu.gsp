@@ -34,7 +34,7 @@
                     <li><a href="${createLink(controller: 'profile', action: 'myEvents')}">
                         <g:message code="menu.myevents.label"/></a></li>
                     <li><a href="${createLink(controller: 'profile', action: 'index')}">
-                        <g:message code="menu.profile.label"/></a></li>
+                        <i class="fa fa-user"></i> <sec:username/></a></li>
                     <li>
                         <a href="${createLink(controller: 'logout', action: 'index')}" data-toggle="tooltip"
                            data-placement="bottom" title="${message(code: "menu.singout.label")}"><i
