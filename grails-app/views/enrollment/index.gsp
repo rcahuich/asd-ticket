@@ -159,19 +159,47 @@
                             </div>
                         </div>
 
-                        <button id="save-register" type="submit" class="btn btn-success btn-block"><g:message
-                                code="enrollment.form.btn.add.label"/></button>
-                    </form>
-                    <!--
-                    <div class="login-or">
-                        <hr class="hr-or">
-                        <span class="span-or">or</span>
-                    </div>-->
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <recaptcha:ifEnabled>
+                                        <%--<g:if test="${session.idioma == 'es'}"> --%>
+                                        <recaptcha:recaptcha theme="white" lang="es"/>
+                                        <%--</g:if>
+                                        <g:else>
+                                            <script type="text/javascript">
+                                                var RecaptchaOptions = {
+                                                    custom_translations : {
+                                                        instructions_visual : "Type the two words:",
+                                                        instructions_audio : "Write what you hear:",
+                                                        refresh_btn : "Get a new word",
+                                                        audio_challenge : "Audio mode",
+                                                        visual_challenge : "Visual mode",
+                                                        help_btn : "Help",
+                                                        incorrect_try_again : "Wrong, try again:",
+                                                    },
+                                                    theme:'white',
+                                                    lang:'en'
+                                                }
+                                            </script>
+                                            <recaptcha:recaptcha/>
+                                        </g:else> --%>
+                                </recaptcha:ifEnabled>
+                            </div>
+                        </div>
+                           <br/>
+                <button id="save-register" type="submit" class="btn btn-success btn-block"><g:message
+                        code="enrollment.form.btn.add.label"/></button>
+            </form>
+            <!--
+            <div class="login-or">
+                <hr class="hr-or">
+                <span class="span-or">or</span>
+            </div>-->
 
-                </div>
-            </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 </body>
 </html>
