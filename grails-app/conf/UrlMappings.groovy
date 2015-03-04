@@ -9,6 +9,7 @@ class UrlMappings {
 
         "/"(controller: "home", action: "index")
         "/registro"(controller: "enrollment", action: "index")
+        "/perfil/$username"(controller: "profile", action: "index")
         "/registro/confirma/$id"(controller: "enrollment", action: "confirm")
         "500"(view:'/error')
 	}

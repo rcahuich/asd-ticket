@@ -1,5 +1,6 @@
 package com.asd.seven.adventticket
 
+import com.asd.seven.adventticket.enums.GenderEnum
 import com.asd.seven.adventticket.security.Role
 import com.asd.seven.adventticket.security.User
 import com.asd.seven.adventticket.security.UserRole
@@ -32,6 +33,7 @@ class EnrollmentController {
             enrollmentService.createUser(params)
             render ([username:params.username] as JSON)
         } catch (Exception e){
+            recaptchaService.cleanUp(session)
             response.status = 422
             render (e.getMessage())
         }
@@ -40,13 +42,13 @@ class EnrollmentController {
     def confirm(){
         def result = enrollmentService.checkConfirmation(params.id)
         if(!result.valid){
-            render view: 'error'
+            render view: '/home/index'
             return
         }
 
         def user = User.get(result.token.toLong())
         if(!user){
-            render view: 'error'
+            render view: '/home/index'
             return
         }
 
@@ -59,7 +61,6 @@ class EnrollmentController {
         }
 
         def contenido = groovyPageRenderer.render(view:"/mail/welcome", model:[user:user])
-        //TODO parametrizar mensajes
         mailService.sendMail {
             to user.email
             from grailsApplication.config.grails.fromMailAddress
@@ -70,6 +71,11 @@ class EnrollmentController {
         springSecurityService.reauthenticate user.username
 
         flash.message = message(code: 'enrollment.welcome.new')
-        redirect(controller:"home", action:"index")
+        redirect(uri: "/perfil/${user.username}")
     }
+
+    def reloadCaptcha(){
+        render(template: '/layouts/recaptcha')
+    }
+
 }

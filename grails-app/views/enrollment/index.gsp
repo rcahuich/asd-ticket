@@ -10,7 +10,22 @@
     <asset:javascript src="jquery.validationEngine.js"/>
     <asset:javascript src="jquery.validationEngine-es.js"/>
     <script type="text/javascript">
+        function reloadCaptcha() {
+            $("#ajax_spinner_time").show();
+            $.ajax({
+                type: 'GET',
+                url: '${createLink(controller: 'enrollment', action: 'reloadCaptcha')}',
+                success: function (data) {
+                    $('#gcaptcha').html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(textStatus);
+                }
+            });
+        }
+
         $(document).ready(function () {
+            reloadCaptcha();
             $("#form-register").validationEngine('attach', {scroll: false});
             $('#birthday').datepicker({
                 endDate: "today",
@@ -28,13 +43,12 @@
                         url: '${createLink(controller: 'enrollment', action: 'saveEnroll')}',
                         data: $('#form-register').serialize(),
                         success: function (data) {
-                            console.log(data);
                             $('#outline-register').hide();
                             $('#name').html(data.username);
                             $('#msg-success').show();
                         },
                         error: function (data) {
-                            console.log(data);
+                            reloadCaptcha();
                             $('#msg-error').show();
                             $('#error').html(data.responseText);
                             $('#outline-register').hide();
@@ -161,29 +175,7 @@
 
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
-                                <recaptcha:ifEnabled>
-                                        <%--<g:if test="${session.idioma == 'es'}"> --%>
-                                        <recaptcha:recaptcha theme="white" lang="es"/>
-                                        <%--</g:if>
-                                        <g:else>
-                                            <script type="text/javascript">
-                                                var RecaptchaOptions = {
-                                                    custom_translations : {
-                                                        instructions_visual : "Type the two words:",
-                                                        instructions_audio : "Write what you hear:",
-                                                        refresh_btn : "Get a new word",
-                                                        audio_challenge : "Audio mode",
-                                                        visual_challenge : "Visual mode",
-                                                        help_btn : "Help",
-                                                        incorrect_try_again : "Wrong, try again:",
-                                                    },
-                                                    theme:'white',
-                                                    lang:'en'
-                                                }
-                                            </script>
-                                            <recaptcha:recaptcha/>
-                                        </g:else> --%>
-                                </recaptcha:ifEnabled>
+                                <div id="gcaptcha"></div>
                             </div>
                         </div>
                            <br/>
