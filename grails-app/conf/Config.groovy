@@ -92,6 +92,24 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.serverURL = "https://localhost:8443/asd-ticket"
+        grails.plugin.springsecurity.portMapper.httpPort = "8080"
+        grails.plugin.springsecurity.portMapper.httpsPort = "8443"
+        // Configuración de Emails
+        grails.fromMailAddress = "hospitalgdl@gmail.com"
+        grails {
+            mail {
+                host = "smtp.gmail.com"
+                port = 465
+                username = "hospitalgdl@gmail.com"
+                password = "qwerty12345!"
+                props = ["mail.smtp.auth":"true",
+                        "mail.smtp.socketFactory.port":"465",
+                        "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                        "mail.smtp.socketFactory.fallback":"false"]
+            }
+        }
+
     }
     production {
         grails.logging.jul.usebridge = false
