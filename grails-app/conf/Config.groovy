@@ -185,7 +185,9 @@ grails.plugin.springsecurity.interceptUrlMap = [
     '/login/**':                      ['permitAll'],
     '/logout/**':                     ['permitAll'],
     '/registro/**':                   ['permitAll'],
-    '/enrollment/**':                 ['permitAll']
+    '/enrollment/**':                 ['permitAll'],
+    '/perfil/**':                     ['ROLE_ASSISTANT'],
+    '/profile/**':                     ['ROLE_ASSISTANT']
 ]
 
 grails.plugin.springsecurity.roleHierarchy = '''

@@ -33,7 +33,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="${createLink(controller: 'profile', action: 'myEvents')}">
                         <g:message code="menu.myevents.label"/></a></li>
-                    <li><a href="${createLink(controller: 'profile', action: 'index')}">
+                    <li><a href="${createLink(uri: "/perfil/${g.username()}")}">
                         <i class="fa fa-user"></i> <sec:username/></a></li>
                     <li>
                         <a href="${createLink(controller: 'logout', action: 'index')}" data-toggle="tooltip"

@@ -1,16 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-  <title><g:message code="profile.miPerfil.title"/> </title>
+    <meta name="layout" content="main"/>
+    <title>${user.nameFull} </title>
+    <style type="text/css">
+    body {
+        margin-top: 50px;
+    }
+    </style>
 </head>
 <body>
+
+<!-- Header Profile -->
 <div class="banner animated fadeInDown">
-
     <div class="container">
-
         <div class="row">
             <div class="col-lg-6">
-                <h3>${user.nameFull}</h3>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <img data-src="holder.js/140x140" class="img-circle" alt="140x140" style="width: 140px; height: 140px; margin-top: -25%;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
+                    </div>
+                    <div class="col-xs-12 col-md-8">
+                        <h2>${user.nameFull}</h2>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
                 <ul class="list-inline banner-social-buttons">
@@ -26,11 +39,26 @@
                 </ul>
             </div>
         </div>
-
     </div>
-    <!-- /.container -->
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <g:render template="menuProfile"/>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-9">
+
+            <div class="page-header">
+                <h2><g:message code="profile.miPerfil.subTitle" /></h2>
+            </div>
+
+
+        </div>
+    </div>
 
 </div>
+
 
 </body>
 </html>
