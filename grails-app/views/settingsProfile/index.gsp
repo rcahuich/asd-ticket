@@ -7,8 +7,6 @@
     body {
         margin-top: 50px;
     }
-    .btn-link{color: #ffffff}
-    .btn-link:hover{color: #ffffff}
     </style>
 </head>
 <body>
@@ -23,8 +21,7 @@
                         <img data-src="holder.js/140x140" class="img-circle" alt="140x140" style="width: 140px; height: 140px; margin-top: -25%;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
                     </div>
                     <div class="col-xs-12 col-md-8">
-                        <h2>${user.nameFull}</h2><br/>
-                        <a class="btn btn-link" href="${createLink(controller: 'settingsProfile')}">Configuración de tu Cuenta</a>
+                        <h2>${user.nameFull}</h2>
                     </div>
                 </div>
             </div>
@@ -51,11 +48,33 @@
             <g:render template="menuProfile"/>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-9">
+            <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><g:message code="profile.miPerfil.subTitle" /></h3>
+                </div>
+                <div class="panel-body">
 
-            <div class="page-header">
-                <h2><g:message code="profile.miPerfil.subTitle" /></h2>
+
+
+
+
+                    <g:form action="profileUpdate" class="form-horizontal" enctype="multipart/form-data">
+                        <g:render template="profile"/>
+
+                        <div class="form-actions" style="text-align: right;">
+                            <g:set var="idUsuario" value="${user.id }" scope="session" />
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-refresh"></i>
+                                <g:message code="button.profileUpdate" />
+                            </button>
+                        </div>
+
+                    </g:form>
+
+
+                </div>
             </div>
-
 
         </div>
     </div>

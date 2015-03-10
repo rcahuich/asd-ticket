@@ -4,7 +4,7 @@ import com.asd.seven.adventticket.security.User
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(['ROLE_ASSISTANT'])
-class ProfileController {
+class SettingsProfileController {
 
     def springSecurityService
 
